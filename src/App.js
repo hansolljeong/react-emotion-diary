@@ -4,8 +4,6 @@ import "./App.css";
 import New from "./pages/New";
 import Edit from "./pages/Edit";
 import Diary from "./pages/Diary";
-import MyHeader from "./pages/MyHeader";
-import MyButton from "./pages/MyButton";
 import { createContext, useReducer, useRef } from "react";
 
 // 상태관리를 위한 reducer 설정
@@ -38,9 +36,42 @@ const reducer = (state, action) => {
 export const DiaryStateContext = createContext();
 export const DiaryDispatchContext = createContext();
 
+const dummyData = [
+  {
+    id: 1,
+    emotion: 1,
+    content: "today's diary 1",
+    date: 1675504202678,
+  },
+  {
+    id: 2,
+    emotion: 2,
+    content: "today's diary 2",
+    date: 1675504202679,
+  },
+  {
+    id: 3,
+    emotion: 3,
+    content: "today's diary 3",
+    date: 1675504202680,
+  },
+  {
+    id: 4,
+    emotion: 4,
+    content: "today's diary 4",
+    date: 1675504202681,
+  },
+  {
+    id: 5,
+    emotion: 5,
+    content: "today's diary 5",
+    date: 1675504202682,
+  },
+];
+
 function App() {
   // 상태관리를 위한 useReducer
-  const [data, dispatch] = useReducer(reducer, []);
+  const [data, dispatch] = useReducer(reducer, dummyData);
 
   const dataId = useRef(0);
   // CREATE
@@ -78,11 +109,6 @@ function App() {
       <DiaryDispatchContext.Provider value={{ onCreate, onEdit, onRemove }}>
         <BrowserRouter>
           <div className="App">
-            <MyHeader
-              headText={"Test Header"}
-              leftChild={<MyButton text={"left"} />}
-              rightChild={<MyButton text={"right"} type={"positive"} />}
-            />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/new" element={<New />} />

@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import { createContext, useReducer, useRef } from "react";
 import "./App.css";
+
+import Home from "./pages/Home";
 import New from "./pages/New";
 import Edit from "./pages/Edit";
 import Diary from "./pages/Diary";
-import { createContext, useReducer, useRef } from "react";
 
 // 상태관리를 위한 reducer 설정
 const reducer = (state, action) => {

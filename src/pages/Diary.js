@@ -39,12 +39,10 @@ const Diary = () => {
       <div className="DiaryPage">
         <MyHeader
           headText={`${getStringDate(new Date(data.date))} Diary`}
-          leftChild={
-            <MyButton text={"< 뒤로가기"} onClick={() => navigate(-1)} />
-          }
+          leftChild={<MyButton text={"< Back"} onClick={() => navigate(-1)} />}
           rightChild={
             <MyButton
-              text={"수정하기"}
+              text={"Edit"}
               onClick={() => navigate(`/edit/${data.id}`)}
             />
           }

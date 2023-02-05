@@ -28,7 +28,7 @@ const DiaryItem = ({ id, emotion, content, date }) => {
       >
         <img
           src={process.env.PUBLIC_URL + `/assets/emotion${emotion}.png`}
-          alt="why???"
+          alt="cannot import img"
         />
       </div>
       <div onClick={goDetail} className="info_wrapper">

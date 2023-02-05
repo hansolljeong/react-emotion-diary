@@ -10,6 +10,12 @@ const Edit = () => {
   const { id } = useParams();
 
   const diaryList = useContext(DiaryStateContext);
+
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `Emotion Diary - Diary No.${id} Edit`;
+  }, []);
+
   useEffect(() => {
     if (diaryList.length > 0) {
       const targetDiary = diaryList.find(
